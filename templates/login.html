@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+{% endblock %}
+
+{% block titulo %} 
+<h1> INGRESO </h1>
+{% endblock %}
+
+{% block contenido %} 
+<!-- tampoco esta hecho -->
+ <form>
+        <label for="name">Nombre: </label>
+        <input type="text" id="name" name="nombre" /><br>
+        <label for="password">Contraseña: </label>
+        <input type="password" id="password" name="contraseña"/><br>
+        <input type="submit" id="send-signup" value="Ingresar"/>
+    </form>
+
+{% endblock %}
