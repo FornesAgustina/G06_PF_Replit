@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+{% endblock %} 
+
+{% block titulo %} 
+<h1>Rincon del Sabor</h1> 
+{% endblock %}
+
+{% block contenido %} 
+<style> body{ background-color: #0180AB; } </style>
+<!-- ELIMINAR -->
+<div class="eliminarAdmin">
+<h1> Eliminar Lugar</h1>
+    <h4> Elija cuál quiere eliminar</h4>
+    <form action="{{ url_for('eliminarAjax') }}" id="proyecto">
+      <select id="selectEliminar">
+      {% for palabra in lista %}
+        <option value= "{{ palabra[1] }}"> {{ palabra[1] }}</option>
+      {% endfor %}  
+    </select>
+       <button type="button" id="eliminar" onclick="eliminarAjax()"> Eliminar </button>
+    </form>
+</div>
+
+<!-- MODIFICAR -->
+<div class="modificar">
+  <h1> Modificar Información</h1>
+        <form action="{{ url_for('modificarAjax') }}" id="proyecto">
+        <select id="lugar">
+        {% for lugar in lista %}
+          <option value= "{{ lugar[1] }}"> {{ palabra[1] }}</option>
+        {% endfor %}  
+      </select>
+        <input type="text" placeholder="Ingrese el nuevo lugar" id="nuevo" name="nuevo" style=/><br></br> 
+          
+      <input type="text" placeholder="Ingrese dirección del lugar" id="direccion" name="direccion"style=/><br></br> 
+          
+      <input type="text" placeholder="Ingrese descripción del lugar" id="descripcion" name="descripcion" style=/><br></br> 
+          
+      <select id="costo" name="costo">
+        <option> Bajo </option>
+        <option> Medio </option>
+        <option> Alto </option>
+      </select>
+       <button type="button" id="modificar" onclick="modificarAjax()"> Modificar </button>
+        </form>
+</div>
+
+<!-- AGREGAR -->
+<div class="agregrar">
+  <h1>Agregar Lugar</h1>
+  <form action="{{ url_for('agregarAjax') }}" id="proyecto">
+    <input type="text" placeholder="Ingrese el nuevo lugar" id="nombre" name="nombre"style=/><br></br> 
+          
+    <input type="text" placeholder="Ingrese dirección" id="direccion"  name="direccion" style=/><br></br> 
+          
+      <input type="text" placeholder="Ingrese descripción" id="descripcion"  name="descripcion" style=/><br></br> 
+      
+  <label for="palabra">Palabra: </label>  
+      <select id="costo" name="costo">
+        <option> Bajo </option>
+        <option> Medio </option>
+        <option> Alto </option>
+      </select>
+  <input type="button" id="enviar" onclick="agregarAjax()" value="Agregar palabra"/><br>
+   </form>
+</div>
+
+
+{% endblock %}

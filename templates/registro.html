@@ -1,20 +1,41 @@
 {% extends 'base.html' %}
 
-{% block nav %}
-{% endblock %}
+<!--{% block nav %}
+{% endblock %} -->
 
 {% block titulo %} 
-<h1>Registro</h1>
+
 {% endblock %}
 
 {% block contenido %} 
-<!-- No esta hecho, era solo para probar algo-->
- <form>
-        <label for="name">Nombre: </label>
-        <input type="text" id="name" name="nombre" /><br>
-        <label for="password">Contraseña: </label>
-        <input type="password" id="password" name="contraseña"/><br>
-        <input type="submit" id="send-signup" value="Ingresar"/>
+
+<section id="divididos">
+  <div class="registro">
+    <h1>Rincon del Sabor</h1> 
+    <h2>Registrate</h2>
+    <form action="{{ url_for('inicio') }}" method="post">
+          <label for="name">Ingresá tu nombre: </label><br>
+          <input type="text" id="name" name="nombre" placeholder="Usuario" required/><br>
+              
+          <label for="mail">Ingresá tu correo electrónico: </label><br>
+          <input type="text" id="mail" name="correo" placeholder="Gmail" required/><br>
+              
+          <label for="password">Ingresá tu Contraseña: </label><br>
+          <input type="password" id="password" placeholder="Contraseña" required/><br>
+              
+          <input type="submit" id="send-signup" value="Registrarse"/>
     </form>
+      <a href="{{ url_for('ingreso') }}"> ¿Ya tenes una cuenta? Ingresá acá </a>
+  </div>
+      
+  <div class="slider">
+    <ul>
+      <li><img src="static/img/1.jpg" alt=""></li>
+      <li><img src="static/img/2.jpg" alt=""></li>
+      <li><img src="static/img/3.jpg" alt=""></li>
+      <li><img src="static/img/4.jpg" alt=""></li>
+    </ul>
+  </div>
+</section>
 
 {% endblock %}
