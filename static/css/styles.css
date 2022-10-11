@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jost&display=swap');
+
+body {
+  background-color: #0180AB;
+  min-height: 100vh;
+  font-family: 'Jost', sans-serif;
+  color: #FFFFFF;
+  background-color: #ffffff; 
+  margin-left: -2px;
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+
+.registro {
+  height: 100vh;
+  width: 100vh;
+  text-align: center;
+  float: center;
+  background-color: #0180AB;
+  background-size: cover;
+  z-index: 0;
+}
+
+.registro h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 600%;
+}
+
+.registro h2 {
+  font-size: 400%;
+  margin-top: -50px;
+  margin-bottom: 10px;
+}
+
+.registro label {
+  font-size: 20px;
+}
+
+.logueo {
+  height: 100vh;
+  width: 100vh;
+  /* text-align: center; */
+  float: left;
+  background-color: #0180AB;
+  background-size: cover;
+  z-index: 0;
+}
+
+.slider {
+ 
+  width: 110vh;
+  height: 102vh;
+  float: right;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: -15px;
+  background-size: cover;
+
+}
+
+.slider ul {
+  width: 400%;
+  display: flex;
+  padding: 0px;
+  z-index: 1;
+
+
+  animation: cambio 20s infinite alternate linear;
+}
+
+.slider li {
+  width: 100%;
+  list-style: none;
+  z-index: 1;
+
+}
+
+.slider img {
+  width: 100%;
+  z-index: 1;
+}
+
+@keyframes cambio {
+  0% {margin-left: 0;}
+  20% {margin-left: 0;}
+
+  25% {margin-left: -100%;}
+  45% {margin-left: -100%;}
+
+  50% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+
+  75% {margin-left: -300%;}
+  100% {margin-left: -300%;}
+}
+
+#divididos{
+  display: flex;
+}
+
+/* https://www.youtube.com/watch?v=P09qW9k0vKE */
+
