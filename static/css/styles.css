@@ -1,15 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jost&display=swap');
 
+/* Logueo y Registro */
+
 body {
   background-color: #0180AB;
   min-height: 100vh;
   font-family: 'Jost', sans-serif;
   color: #FFFFFF;
-  background-color: #ffffff; 
-  margin-left: -2px;
-  margin-top: -2px;
-  margin-bottom: -2px;
-}
+  margin: 0px;}
 
 .registro {
   height: 100vh;
@@ -24,38 +22,132 @@ body {
 .registro h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 600%;
+  margin-top: 5%;
 }
 
 .registro h2 {
   font-size: 400%;
-  margin-top: -50px;
-  margin-bottom: 10px;
+  margin-top: -70px;
+  margin-bottom: 20px;
+}
+
+.registro h3{ 
+  background-color: rgba(253, 168, 85, .9);
+  color: #FFFFFF;
 }
 
 .registro label {
   font-size: 20px;
 }
 
+.logueo h3{ 
+  background-color: rgba(253, 168, 85, .9);
+  color: #FFFFFF;
+}
+
 .logueo {
   height: 100vh;
   width: 100vh;
-  /* text-align: center; */
-  float: left;
+  text-align: center;
+  float: center;
   background-color: #0180AB;
   background-size: cover;
   z-index: 0;
 }
 
+.logueo h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 600%;
+  margin-top: 5%;
+}
+
+.logueo h2 {
+  font-size: 400%;
+  margin-top: -70px;
+  margin-bottom: 20px;
+}
+
+.logueo label {
+  font-size: 20px;
+}
+
+#divididos{
+  display: flex;
+  width: 100%;
+}
+
+#divididos hr {
+  width: 35%;
+}
+
+#name {
+  margin-top: 10px;
+  border: 0;
+  outline: none;
+  color: #fff;
+  font-size: 95%;
+  background-color: #0180AB;
+}
+
+#name::placeholder{
+  color: #fff;
+}
+
+#mail {
+  margin-top: 10px;
+  border: 0;
+  outline: none;
+  color: #fff;
+  font-size: 95%;
+  background-color: #0180AB;
+}
+
+#mail::placeholder{
+  color: #fff;
+}
+
+#password {
+  margin-top: 10px;
+  border: 0;
+  outline: none;
+  color: #fff;
+  font-size: 95%;
+  background-color:#0180AB;
+}
+
+#password::placeholder{
+  color: #fff;
+}
+
+#send-signup {
+  padding: 10px 20px 10px 20px;
+  color: #ffffff;
+  background-color: #2BB6D4;
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+  font-size: 120%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#send-signup:hover {
+  background-color: #FDA855;
+  color: white;
+ }
+
+#link {
+  color: #FFFFFF;
+}
+
 .slider {
- 
   width: 110vh;
-  height: 102vh;
+  height: 102.3vh;
   float: right;
   overflow: hidden;
   z-index: 1;
   margin-top: -15px;
   background-size: cover;
-
 }
 
 .slider ul {
@@ -63,8 +155,7 @@ body {
   display: flex;
   padding: 0px;
   z-index: 1;
-
-
+  
   animation: cambio 20s infinite alternate linear;
 }
 
@@ -72,7 +163,6 @@ body {
   width: 100%;
   list-style: none;
   z-index: 1;
-
 }
 
 .slider img {
@@ -94,9 +184,33 @@ body {
   100% {margin-left: -300%;}
 }
 
-#divididos{
-  display: flex;
+/* Logueo y Registro */
+
+/* ADMIN */
+
+.titulo h1 {
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 400%;
 }
 
-/* https://www.youtube.com/watch?v=P09qW9k0vKE */
+#funciones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
+
+/* ADMIN */
+
+
+/* MAPA */
+
+#map {
+ /* height: 100vh; */
+  z-index: 0;
+}
+
+#images{
+  z-index: 2;
+}
