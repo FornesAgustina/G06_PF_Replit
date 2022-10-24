@@ -11,16 +11,22 @@
   <div class="logueo">
     <h1>Rincon del Sabor</h1> 
     <h2>Inicia Sesión</h2>
-    <form action="{{ url_for('inicio') }}" method="post">
-          <label for="name">Ingresá tu nombre: </label><br>
-          <input type="text" id="name" name="nombre" placeholder="Usuario" required/><br>
+    <form action="{{ url_for('ingresoAjax') }}" method="POST">
+      <label for="name">Ingresá tu nombre: </label><br>
+      <input type="text" id="name" name="nombre" placeholder="Usuario" required/><br>
+      <hr>
+
+      {% if yaExiste == True %}
+      <h3>El usuario no existe</h3>
+      {% endif %}
+      
+      <label for="password">Ingresá tu contraseña: </label><br>
+      <input type="password" name="contraseña" id="password" placeholder="Contraseña" required/><br>
+      <hr>
           
-          <label for="password">Ingresá tu contraseña: </label><br>
-          <input type="password" id="password" placeholder="Contraseña" required/><br>
-          
-          <input type="submit" id="send-signup" value="Ingresar"/>
+      <input type="submit" id="send-signup" value="Ingresar"/>
     </form>
-    <a href="{{ url_for('registro') }}"> ¿No tenes una cuenta? Ingresá acá </a>
+    <a href="{{ url_for('registro') }}" id="link"> ¿No tenes una cuenta? Ingresá acá </a>
   </div>
   
   <div class="slider">

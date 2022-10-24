@@ -13,26 +13,34 @@
   <div class="registro">
     <h1>Rincon del Sabor</h1> 
     <h2>Registrate</h2>
-    <form action="{{ url_for('inicio') }}" method="post">
-          <label for="name">Ingresá tu nombre: </label><br>
-          <input type="text" id="name" name="nombre" placeholder="Usuario" required/><br>
+    <form action="{{ url_for('registroAjax') }}" method="POST">
+      <label for="name">Ingresá tu nombre: </label><br>
+      <input type="text" id="name" name="nombre" placeholder="Usuario" required/><br>
+      <hr>
+      
+      {% if yaExiste == True %}
+        <h3>El usuario ya existe</h3>
+      {% endif %}
               
-          <label for="mail">Ingresá tu correo electrónico: </label><br>
-          <input type="text" id="mail" name="correo" placeholder="Gmail" required/><br>
+      <label for="mail">Ingresá tu correo electrónico: </label><br>
+      <input type="text" id="mail" name="mail" placeholder="Gmail" required/><br> 
+      <hr>
               
-          <label for="password">Ingresá tu Contraseña: </label><br>
-          <input type="password" id="password" placeholder="Contraseña" required/><br>
-              
-          <input type="submit" id="send-signup" value="Registrarse"/>
+      <label for="password">Ingresá tu contraseña: </label><br>
+      <input type="password"  id="password" placeholder="Contraseña" name="contraseña" required/><br>
+      <hr>
+      <input type="submit" id="send-signup" value="Registrarse"/>
     </form>
-      <a href="{{ url_for('ingreso') }}"> ¿Ya tenes una cuenta? Ingresá acá </a>
+    <!-- <div class="msg">{{ msg }}</div> -->
+    
+    <a href="{{ url_for('ingreso') }}" id="link"> ¿Ya tenes una cuenta? Ingresá acá </a>
   </div>
       
   <div class="slider">
     <ul>
       <li><img src="static/img/1.jpg" alt=""></li>
       <li><img src="static/img/2.jpg" alt=""></li>
-      <li><img src="static/img/3.jpg" alt=""></li>
+      <li><img src="static/img/3.jpg" alt=""></li> 
       <li><img src="static/img/4.jpg" alt=""></li>
     </ul>
   </div>
