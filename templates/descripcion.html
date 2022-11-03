@@ -1,14 +1,26 @@
 {% extends 'base.html' %}
 
-<!-- {% block nav %}
-{% endblock %} -->
-
 {% block titulo %} 
 {% endblock %}
 
 {% block contenido %} 
 
-<h1>Nombre</h1>
-<h2>Dirección</h2>
+<section id="fondo">
+  <div class="regreso">
+    <form action="{{ url_for('inicio') }}"> 
+      <button type="submit" class="button-6">Volver</button>
+    </form>
+  </div>
+
+  <div class="descripcion">
+    <h2 id="NOMBRE"></h2>
+    <h3 id="DIRECCION"></h3>
+    <p id="INSTAGRAM"></p>
+    <P id="TELEFONO"></p>
+    <p id="DESCRIPCION"></p>
+  </div>
+  
+</section>
+
 
 {% endblock %}

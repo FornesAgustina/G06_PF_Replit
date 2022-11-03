@@ -1,105 +1,58 @@
 {% extends 'base.html' %}
 
+{% block extrahead %}
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-{% block titulo %} {% endblock %}
-{% block contenido %}{% endblock %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block inbody %} onload="underBar()" {% endblock %}
+{% block titulo %}{% endblock %}
+
+{% block contenido %}
+<div id="images"></div>   
+<div id="map"></div>
 
 
-<body>
-  
-    <div id="images">
-     <h2>hola</h2>
-  </div>
+<body onload="map.addMarker({lat: -34.614249, lng: -58.422078},true, false, true, true, true);">
 
-  
-  <div id="map">
-   
-  </div>
-
-  
-  <div>
-  <!--   <button onclick="map.addMarker({lat: -34.614249, lng: -58.422078},true, false, true, true, true);" >AÑADIR MARCADOR</button> -->
-
-  </div>
-
+<div id="buscador">
+    <input type="text" class="SearchBar" onkeyup="buscar()" placeholder="¿De qué tenes ganas?" id="SearchBar" > 
  
-</body>
-<!-- cosas de boostrap 
-  
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<nav class="navbar bg-light">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Navbar</span>
-  </div>
-</nav>
+    <button type="submit" class="SearchButton">🔍︎</button>
 
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small>And some small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Some placeholder content in a paragraph.</p>
-    <small class="text-muted">And some muted small print.</small>
-  </a>
+  
 </div>
-  
- cosas de boostrap -->
 
+<div id="sitios" >
+    <div id="lugar1">
+      <a href="{{ url_for('descripcion') }}" id="nombre1"></a>
+      <h3 id="direccion1"></h3>
+      <p id="rating1"></p>
+      <p id="precio1"></p>
+      <p id="tipo1"></p>
+      <img src="static/img/{{ url }}" id=img1>
+    </div>
 
-  
+    <hr>
+
+    <div id="lugar2">
+      <a href="{{ url_for('descripcion') }}" id="nombre2"></a>
+      <h3 id="direccion2"></h3>
+      <p id="rating2"</p>
+      <p id="precio2"></p>
+      <p id="tipo2"></p>
+      <img src="static/img/">
+    </div>
+
+    <hr>
+</div>
+
+<!-- <div> <button onclick="map.addMarker({lat: -34.614249, lng: -58.422078},true, false, true, true, true);" >AÑADIR MARCADOR</button> 
+</div>-->
+
 <script src="{{url_for('static', filename='mapa/lib/MapaInteractivo.js')}}"></script>
 <script>
   let map = new MapaInteractivo("map", {
@@ -109,27 +62,8 @@
     onLayerLoaded: function (layerName, layerId) {console.log (layerName, layerId)},
     onContextMenu: onContextMenu
   });
-  map.setHeatMapData([
-      [-34.59605809895703,-58.35457413376579, 0.9],
-      [-34.59605809895703,-58.35457413376579, 0.9],
-      [-34.59605809895703,-58.35457413376579, 0.9],
-      [-34.59605809895703,-58.35457413376579, 0.9],
-      [-34.59605809895703,-58.35457413376579, 0.9],
-      [-34.59605809895703,-58.35457413376579, 0.9],
-      [-34.59605809895703,-58.35457413376579, 0.9],
-      [-34.59605809895703,-58.35457413376579, 0.9],
-    ], {radius: 25}
-  );
 
-  function addLayerEstacionamientos() {
-    map.addPublicLayer("estacionamiento_en_via_publica", {
-      callAPIOnClick: true,
-      onClickAPI: "http://epok.buenosaires.gob.ar/atlasvial/buscarInformacionEstacionamiento/?formato=geojson&fullInfo=True&x=$lng&y=$lat&categorias=$categories",
-      baseLayer: {
-        uri: "http://tiles1.usig.buenosaires.gob.ar/mapcache/tms/1.0.0/estacionamiento_en_via_publica_caba_3857@GoogleMapsCompatible/{z}/{x}/{y}.png"
-      }
-    });
-  }
+
 
   function addLayer(id) {
     map.addPublicLayer(id, {clustering: true});
@@ -150,26 +84,6 @@
     })
   }
 
-  function addVectorTileLayer(){
-    map.addVectorTileLayer('parcelas',{
-      url: 'http://example.com/tileserver/parcelas/{z}/{x}/{y}.pbf',
-      displayPopup:{ content:'<b>Comuna: </b>{parcela} <br> <b>Barrio: </b>{barrios}', onEvent:'click'},
-      style:{
-        parcelas:function(properties, zoom, geometryDimension){
-          return {
-                 weight: (zoom > 12)? 2 : 0.5,
-                 fillColor: getColor(properties.comuna),
-                 fillOpacity: 0.8,
-                 stroke: true,
-                 color:'#FF00FF',
-                 dashArray: '2',
-                 fill: true
-            }
-        }
-      }
-    });
-  }
-
 
   function getColor(d) {
     return d > 12  ? '#E31A1C' :
@@ -184,5 +98,6 @@
 //    map.removePublicLayer("estacionamiento_en_via_publica");
 //    map.addPublicLayer("cajeros_automaticos", {clustering: true});
 //  }, 10000)
+  
 </script>
-</html>
+{% endblock %}

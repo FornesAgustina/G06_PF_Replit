@@ -4,14 +4,15 @@
 
 body {
   background-color: #0180AB;
-  min-height: 100vh;
+  height: 100vh;
   font-family: 'Jost', sans-serif;
   color: #FFFFFF;
-  margin: 0px;}
+  margin: 0px;
+}
 
 .registro {
   height: 100vh;
-  width: 100vh;
+  width: 50vw;
   text-align: center;
   float: center;
   background-color: #0180AB;
@@ -47,7 +48,7 @@ body {
 
 .logueo {
   height: 100vh;
-  width: 100vh;
+  width: 50vw;
   text-align: center;
   float: center;
   background-color: #0180AB;
@@ -141,12 +142,11 @@ body {
 }
 
 .slider {
-  width: 110vh;
-  height: 102.3vh;
+  width: 50vw;
+  height: 100vh;
   float: right;
   overflow: hidden;
   z-index: 1;
-  margin-top: -15px;
   background-size: cover;
 }
 
@@ -168,6 +168,8 @@ body {
 .slider img {
   width: 100%;
   z-index: 1;
+  height: 103vh;
+  margin-top: -3%;
 }
 
 @keyframes cambio {
@@ -198,6 +200,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  
 }
 
 
@@ -207,10 +210,173 @@ body {
 /* MAPA */
 
 #map {
- /* height: 100vh; */
-  z-index: 0;
+  height: 100vh;  
 }
 
-#images{
-  z-index: 2;
+#buscador {
+  z-index: 100000;
+  width: 400px;
+  height: 50px;
+  background-color: #ffffff;
+  border: 10px solid;
+  border-radius: 15px;
+  border-color: #BBD6D0;
+  position: absolute;
+  left: 30px;
+  top: 40px;
 }
+
+.SearchBar{
+  width: 330px;
+  margin-left: 10px;
+  border: 0;
+  border-radius: 5px 0 0 5px;
+  padding: 3px;
+  outline: none;
+  color: #232926;
+}
+
+.SearchButton {
+  width: 40px;
+  height: 30px;
+  border: 0;
+  background: #ffffff;
+  text-align: center;
+  color: #232926;
+  border-radius: 30%;
+  cursor: pointer;
+  position: absolute;
+}
+
+#sitios{
+  z-index: 100000;
+  width: 400px;
+  height: 500px;
+  background-color: #ffffff;
+  border: 10px solid;
+  border-radius: 15px;
+  border-color: #BBD6D0;
+  position: absolute;
+  left: 30px;
+  top: 100px; 
+  color: #000000;
+} 
+
+#nombre1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 200%;
+  color: #000000;
+}
+
+#nombre2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 200%;
+  color: #000000;
+}
+
+#sitios h3 {
+  font-size: 80%;
+  margin-top: -5px;
+}
+
+#lugar1 {
+  z-index: 100100;
+  width: 380px;
+  height: 100px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#lugar2 {
+  z-index: 100100;
+  width: 380px;
+  height: 100px;
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
+#tipo1 {
+  float: right;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  background-color: rgba(0, 0, 0,0.0);
+}
+
+#tipo2 {
+  float: right;
+  margin-top: -30px;
+/*  margin-bottom: 10px; */
+  margin-right: 10px;
+}
+
+
+/* MAPA */
+
+/* DESCRIPCION */
+
+#fondo {
+  background-color: #ffffff;
+  height: 95vh;
+  border: 20px solid;
+  border-color: #FBC495;
+}
+
+.button-6 {
+  margin: 10px;
+  align-items: center;
+  background-color: #FBC495;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 10px;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-6:hover,
+.button-6:focus {
+  background-color: #2BB6D4;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: #FFF;
+}
+
+.button-6:hover {
+  transform: translateY(-2px);
+}
+
+.button-6:active {
+  background-color: #2BB6D4;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: #FFF;
+  transform: translateY(0);
+}
+
+.leaflet-marker-pane {
+  z-index: -1000
+}
+
+
+
+
+
+
+
+/* DESCRIPCION */
