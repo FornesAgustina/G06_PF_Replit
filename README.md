@@ -6,3 +6,7 @@ Intregrantres:
  * Tartaglia, Salvador
  
 Link de invitación al Replit: https://replit.com/join/cbnergjezy-agustinafornes
+Administrador:
+ * Usuario: agusfor
+ * Contraseña: 2005
+ 
