@@ -3,7 +3,7 @@ import L from 'leaflet';
 Misterioso fix para cluster group
 https://github.com/Asymmetrik/ngx-leaflet-markercluster/issues/6
 */
-import MarkerClusterGroup from 'imports-loader?L=leaflet!exports-loader?L.MarkerClusterGroup!../node_modules/leaflet.markercluster/dist/leaflet.markercluster.js'
+import MarkerClusterGroup from 'imports-loader?L=leaflet!exports-loader?L.MarkerClusterGroup!../node_modules/leaflet.markercluster/dist/leaflet.markercluster.js' 
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 // postCSS import of Leaflet's CSS
 import 'leaflet/dist/leaflet.css';

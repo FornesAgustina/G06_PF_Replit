@@ -41989,7 +41989,7 @@ var PolyBase = {
 // 🍂inherits CircleMarker
 // A symbolizer for points.
 
-var PointSymbolizer = _leaflet2.default.CircleMarker.extend({
+ var PointSymbolizer = _leaflet2.default.CircleMarker.extend({
     includes: Symbolizer.prototype,
 
     statics: {
@@ -44038,6 +44038,7 @@ _leaflet2.default.canvas.tile = function (tileCoord, tileSize, opts) {
 /******/ ]);
 });
 //# sourceMappingURL=MapaInteractivo.js.map
+
 
 
 
