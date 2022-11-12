@@ -266,14 +266,27 @@ body {
   font-family: 'Great Vibes', cursive;
   font-size: 200%;
   color: #000000;
+  margin-left: 43%;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 #nombre2 {
   font-family: 'Great Vibes', cursive;
   font-size: 200%;
   color: #000000;
+  margin-left: 43%;
+/*  text-decoration: underline;
+  cursor: pointer; */
 }
-
+#nombre3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 200%;
+  color: #000000;
+  margin-left: 43%;
+/*  text-decoration: underline;
+  cursor: pointer; */
+}
 #sitios h3 {
   font-size: 80%;
   margin-top: -5px;
@@ -281,7 +294,7 @@ body {
 
 #lugar1 {
   z-index: 100100;
-  width: 380px;
+  width: 370px;
   height: 100px;
   margin-top: 5px;
   margin-left: 5px;
@@ -289,9 +302,16 @@ body {
 
 #lugar2 {
   z-index: 100100;
-  width: 380px;
+  width: 370px;
   height: 100px;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+#lugar3 {
+  z-index: 100100;
+  width: 370px;
+  height: 100px;
+  margin-top: 20px;
   margin-left: 5px;
 }
 
@@ -306,11 +326,60 @@ body {
 #tipo2 {
   float: right;
   margin-top: -30px;
-/*  margin-bottom: 10px; */
+  margin-bottom: 10px; 
   margin-right: 10px;
 }
 
+#tipo3 {
+  float: right;
+  margin-top: -30px;
+  margin-bottom: 10px; 
+  margin-right: 10px;
+}
+#direccion1 {
+  margin-left: 43%;
+}
+#direccion3 {
+  margin-left: 43%;
+}
+#precio1 {
+  margin-left: 43%;
+}
 
+#direccion2 {
+  margin-left: 43%;
+}
+
+#precio2 {
+  margin-left: 43%;
+}
+
+#precio3 {
+  margin-left: 43%;
+}
+#img1 {
+  width: 40%;
+  float: left;
+  margin-top: -28%;
+  border: 3px solid;
+  border-color: #BDD6D0;
+}
+
+#img2 {
+  width: 40%;
+  float: left;
+  margin-top: -30%;
+  border: 3px solid;
+  border-color: #BDD6D0;
+}
+
+#img3 {
+  width: 40%;
+  float: left;
+  margin-top: -30%;
+  border: 3px solid;
+  border-color: #BDD6D0;
+}
 /* MAPA */
 
 /* DESCRIPCION */
@@ -373,7 +442,9 @@ body {
   z-index: -1000
 }
 
-
+.descripcion {
+  color: #000000;
+}
 
 
 

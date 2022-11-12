@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
-{% block inbody %} onload="underBar()" {% endblock %}
+{% block inbody %} onload="underBar(); traerCoordenadas()" {% endblock %}
 {% block titulo %}{% endblock %}
 
 {% block contenido %}
@@ -19,34 +19,54 @@
 <body onload="map.addMarker({lat: -34.614249, lng: -58.422078},true, false, true, true, true);">
 
 <div id="buscador">
-    <input type="text" class="SearchBar" onkeyup="buscar()" placeholder="¿De qué tenes ganas?" id="SearchBar" > 
- 
+    <input type="text" list= "sugerencia" class="SearchBar" onkeyup="buscar()" placeholder="¿De qué tenes ganas?" id="SearchBar" > 
+    
     <button type="submit" class="SearchButton">🔍︎</button>
-
+  <datalist id= "sugerencia">
+  <option id= "sitios">a</option>
+    
+  </datalist>
   
 </div>
 
 <div id="sitios" >
     <div id="lugar1">
-      <a href="{{ url_for('descripcion') }}" id="nombre1"></a>
-      <h3 id="direccion1"></h3>
-      <p id="rating1"></p>
-      <p id="precio1"></p>
-      <p id="tipo1"></p>
-      <img src="static/img/{{ url }}" id=img1>
+      <form id="form1" action="/descripcion" method="POST">
+        <input id="input1" type="text" name="lugar" hidden > 
+        <a onclick="document.getElementById('form1').submit()" id="nombre1"></a>
+        <h3 id="direccion1"></h3>
+        <p id="rating1"></p>
+        <p id="precio1"></p>
+        <p id="tipo1"></p>
+        <img src="" id=img1></img>
+      </form>
+      
     </div>
 
     <hr>
 
     <div id="lugar2">
-      <a href="{{ url_for('descripcion') }}" id="nombre2"></a>
-      <h3 id="direccion2"></h3>
-      <p id="rating2"</p>
-      <p id="precio2"></p>
-      <p id="tipo2"></p>
-      <img src="static/img/">
+      <form id="form2" action="/descripcion" method="POST">
+        <input id="input2" type="text" name="lugar" hidden > 
+        <a onclick="document.getElementById('form2').submit()" id="nombre2"></a>
+        <h3 id="direccion2"></h3>
+        <p id="rating2"</p>
+        <p id="precio2"></p>
+        <p id="tipo2"></p>
+        <img src="" id=img2></img>
+      </form>
     </div>
 
+    <hr>
+
+    <div id="lugar3">
+      <a href="{{ url_for('descripcion') }}" id="nombre3"></a>
+      <h3 id="direccion3"></h3>
+      <p id="rating3"</p>
+      <p id="precio3"></p>
+      <p id="tipo3"></p>
+      <img src="" id=img3></img>
+    </div>
     <hr>
 </div>
 

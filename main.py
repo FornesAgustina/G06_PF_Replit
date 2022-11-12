@@ -90,16 +90,9 @@ def ingresoAjax():
   else:
      return render_template('login.html')
   
-# fin usuario
+# FIN USUARIO
     
-
-# DESCRIPCION 
-@app.route('/descripcion')
-def descripcion():
-  return render_template('descripcion.html')
-# FIN DESCRIPCION
-    
-# Administrador
+# ADMINISTRADOR
 @app.route('/admin')
 def administrador():
   conn = sqlite3.connect('BD_RDS.db')
@@ -200,7 +193,7 @@ def traerLista():
     return jsonify(results)
 
     
-# IMAGENES
+    #IMAGENES
 @app.route('/imagenes', methods=['POST'])
 def imagenes():
   if request.method == 'POST':
@@ -215,7 +208,7 @@ def imagenes():
       file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
       print(file_path)
       img.save(file_path)
-      print("hola")    
+     
     
    
       conn = sqlite3.connect('BD_RDS.db')
@@ -223,26 +216,27 @@ def imagenes():
       print(q)
       i = conn.execute(q)
       id = i.fetchone()
-      print(id)
+      print(id[0])
      
-      q = """INSERT INTO Imagenes (url_img, id_lugar) 
-      VALUES ('{filename}', '{id[0]')"""
+      q = f"""INSERT INTO Imagenes (url_img, id_lugar) 
+      VALUES ('{filename}', '{id[0]}')"""
       print(q)
       agregar = conn.execute(q)
       print(agregar)
       conn.commit()
       conn.close()
-      return render_template('admin.html')
+      return redirect('/admin')
   else:
       return redirect('admin.html')
-# Fin Admin    
+# FIN ADMIN    
 
 
 # MAPA  
 @app.route('/mapa')
 def inicio():
   return render_template('demo.html')
-   # trae imagenes
+  
+  # trae imagenes.
 @app.route('/traerImagenes', methods=['POST', 'GET'])
 def traerImagenes():
   if request.method == "GET":
@@ -250,7 +244,7 @@ def traerImagenes():
   
     q = """SELECT * FROM Imagenes"""
     respuesta = conn.execute(q)
-
+   
     results = {'lista': respuesta.fetchall()}
     print(results)
     return jsonify(results)
@@ -266,14 +260,15 @@ def tabla():
 
     q = """SELECT * FROM Lugar """
     respuesta = conn.execute(q)
+    q = """SELECT * FROM Imagenes """
+    imagenes = conn.execute(q)
 
-    results = {'lista': respuesta.fetchall()}
-    print(results)
+    results = {'lista': respuesta.fetchall(),'imagenes': imagenes.fetchall()}
     return jsonify(results)
   else:
     return render_template('demo.html')
       
-  # BUSCADOR
+  #buscador
 @app.route('/buscador', methods = ["POST"])
 def buscador():
   if request.method == 'POST':
@@ -289,14 +284,54 @@ def buscador():
     return render_template('mapa.html')
 
   # Fin buscador  
-
-
 # FIN MAPA
 
+# COORDENADAS
 
 
 
 
+
+
+
+
+@app.route('/traerCoordenadas', methods=['POST', 'GET'])
+def traerCoordenadas():
+  if request.method == "POST":
+    #id = request.form["laId"]
+    
+    conn = sqlite3.connect('BD_RDS.db')
+    q = """SELECT coord_LAT, coord_LNG FROM Lugar"""
+    respuesta = conn.execute(q)
+
+    results = {'coordenadas': respuesta.fetchall()}
+    print(results)
+    return jsonify(results)
+    
+# COORDENADAS
+
+# DESCRIPCION
+@app.route('/descripcion', methods=['POST', 'GET'])
+def descripcion():
+  if request.method == "POST":
+    id = request.form['lugar']
+    print(id)
+    conn = sqlite3.connect('BD_RDS.db')
+    q = f"""SELECT * FROM Lugar WHERE id_lugar == '{id}'"""
+    respuesta = conn.execute(q)
+    q = f"""SELECT * FROM Imagenes WHERE id_lugar == '{id}'"""
+    imagenes = conn.execute(q)
+    vector =  respuesta.fetchall()
+    img =  imagenes.fetchall()
+    print(vector)
+    print(img)
+    print(img)
+    print(vector[0][2])
+    return render_template('descripcion.html', NOMBRE=vector[0][1], DIRECCION=vector[0][2], INSTA=vector[0][8], DESCRIPCION=vector[0][3], IMAGEN=img)
+
+  else:
+        return render_template('descripcion.html')
+# FIN DESCRIPCION   
 app.run(host='0.0.0.0', port=81)
 
 
