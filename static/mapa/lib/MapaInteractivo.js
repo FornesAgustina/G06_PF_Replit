@@ -16660,7 +16660,7 @@ var MapaInteractivo = function () {
     if (params.scaleControl) _leaflet2.default.control.scale({ imperial: false, position: "bottomleft" }).addTo(this.map);
     this.baseLayer = _leaflet2.default.tileLayer(this.config.baseLayer.uri, this.config.baseLayer.params);
     this.baseLayer.addTo(this.map);
-    this.map.on('contextmenu', this._onContextMenu, this);
+    //this.map.on('contextmenu', this._onContextMenu, this);
     this.map.on('click', this._onClick, this);
     this.map.on('zoomstart', this._onMoveStart, this);
     this.map.on('dragstart', this._onMoveStart, this);

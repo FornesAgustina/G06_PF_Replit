@@ -12,12 +12,17 @@
     </form>
   </div>
 
+
+
   <div class="descripcion">
-    <h2 id="NOMBRE"></h2>
-    <h3 id="DIRECCION"></h3>
-    <p id="INSTAGRAM"></p>
-    <P id="TELEFONO"></p>
-    <p id="DESCRIPCION"></p>
+    <h2 id="NOMBRE"> {{ NOMBRE }} </h2>
+    <h3 id="DIRECCION"> {{ DIRECCION }} </h3>
+    <p id="INSTAGRAM"> {{ INSTA }} </p>
+    <P id="TELEFONO">  </p>
+    <p id="DESCRIPCION"> {{ DESCRIPCION }} </p>
+    {% for img in IMAGEN %}
+    <img src="./static/img/{{ img[1] }}" id='img{{ img[0] }}'></img>
+    {% endfor %}
   </div>
   
 </section>
