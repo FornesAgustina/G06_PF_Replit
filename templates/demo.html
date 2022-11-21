@@ -8,22 +8,20 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
-{% block inbody %} onload="underBar(); traerCoordenadas()" {% endblock %}
+{% block inbody %} 
+   
+{% endblock %}
 {% block titulo %}{% endblock %}
 
 {% block contenido %}
 <div id="images"></div>   
 <div id="map"></div>
 
-
-<body onload="map.addMarker({lat: -34.614249, lng: -58.422078},true, false, true, true, true);">
-
 <div id="buscador">
-    <input type="text" list= "sugerencia" class="SearchBar" onkeyup="buscar()" placeholder="¿De qué tenes ganas?" id="SearchBar" > 
+    <input type="text" class="SearchBar" onkeyup="buscar()" placeholder="¿De qué tenes ganas?" id="SearchBar" > 
     
     <button type="submit" class="SearchButton">🔍︎</button>
-  <datalist id= "sugerencia">
-  <option id= "sitios">a</option>
+
     
   </datalist>
   
@@ -60,14 +58,17 @@
     <hr>
 
     <div id="lugar3">
-      <a href="{{ url_for('descripcion') }}" id="nombre3"></a>
+     <form id="form3" action="/descripcion" method="POST">
+      <input id="input3" type="text" name="lugar" hidden > 
+      <a onclick="document.getElementById('form3').submit()" id="nombre3"></a>
       <h3 id="direccion3"></h3>
       <p id="rating3"</p>
       <p id="precio3"></p>
       <p id="tipo3"></p>
       <img src="" id=img3></img>
+    </form>
     </div>
-    <hr>
+
 </div>
 
 <!-- <div> <button onclick="map.addMarker({lat: -34.614249, lng: -58.422078},true, false, true, true, true);" >AÑADIR MARCADOR</button> 
@@ -75,6 +76,10 @@
 
 <script src="{{url_for('static', filename='mapa/lib/MapaInteractivo.js')}}"></script>
 <script>
+  window.onload = function(){
+  underBar(); 
+  traerCoordenadas(); }
+  
   let map = new MapaInteractivo("map", {
     preferCanvas: true,
     language: "en",
@@ -89,7 +94,7 @@
     map.addPublicLayer(id, {clustering: true});
   }
   function onContextMenu(ev) {
-    const id = map.addMarker(ev.latlng, true, false, false, false, false, {iconUrl: 'http://static.usig.buenosaires.gob.ar/symbols/bases_extrahospitalarias.png'});
+    const id = map.addMarker(ev.latlng, true, false, false, false, true, {iconUrl: 'http://static.usig.buenosaires.gob.ar/symbols/bases_extrahospitalarias.png'});
   }
 
   function getImage() {
@@ -121,3 +126,5 @@
   
 </script>
 {% endblock %}
+
+

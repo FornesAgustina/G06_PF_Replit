@@ -5,13 +5,13 @@
 
 {% block titulo %} 
 <div class="titulo">
-  <h1>Rincon del Sabor</h1> 
+  <h1>Rincón del Sabor - Administrador</h1> 
 </div>
   
 {% endblock %}
 
 {% block contenido %} 
-<style> body { margin: 10px;  } </style>
+
 
 <section id="funciones">
 
@@ -21,12 +21,41 @@
     <h4> Elija cuál quiere eliminar</h4>
       <form action="{{ url_for('eliminarAjax') }}" id="proyecto">
         <select id="selectEliminar">
+          <option disabled selected>Selecciona una opción</option>
         {% for lugar in lista %}
           <option id="{{ lugar[1] }}" value= "{{ lugar[1] }}"> {{ lugar[1] }}</option>
         {% endfor %}  
         </select>
          <button type="button" id="eliminar" onclick="eliminarAjax()"> Eliminar </button>
       </form>
+  </div>
+
+  <!-- ELIMINAR Opiniones 
+  <div class="eliminarAdmin">
+    <h1> Eliminar TODAS Opiniones</h1>
+    <form action="{{ url_for('eliminarOpAjax') }}" id="proyecto">
+        <button type="button" id="eliminar" onclick="eliminarOp()"> Eliminar OPINIONES </button>
+      </form>
+  </div>-->
+<!-- ELIMINAR Imagen-->
+  <div class="eliminarI">
+    <h1> Eliminar Imagen</h1>
+    <h4> Elija cuál quiere eliminar</h4>
+      <form action="{{ url_for('eliminar') }}" id="proyecto">
+        <select id="eliminarImg">
+          <option disabled selected>Selecciona una opción</option>
+        {% for img in list %}
+          <option id="{{ img[1] }}" value= "{{ img[1] }}"> {{ img[1] }}</option>
+        {% endfor %}  
+        </select>
+       <button type="button" id="eliminarI" onclick="eliminar()"> Eliminar </button>
+      </form>
+  </div>
+
+  <!-- MOSTRAR LISTA DE LUGARES -->
+  <div class="mostrar">
+    <h1> Mostrar Lista </h1>
+    <button id="lugares" onclick="mandarAjax()"> Mostrar lugares por consola </button>
   </div>
   
   <!-- MODIFICAR -->
@@ -35,6 +64,7 @@
           <form action="{{ url_for('modificarAjax') }}" id="proyecto">
           <label for="lugar">Que lugar modificar: </label>
           <select id="lugar">
+            <option disabled selected>Selecciona una opción</option>
           {% for lugar in lista %}
             <option value= "{{ lugar[1] }}"> {{ lugar[1] }}</option>
           {% endfor %}  
@@ -48,11 +78,12 @@
   
         <label for="direccion">Dirección: </label> 
         <input type="text" placeholder="Ingrese dirección del lugar" id="direccionMod" name="direccion"style=/><br></br> 
+        
         <label for="lat">Coordenada LAT: </label>
-        <input type="text" placeholder="Ingrese coordenada LAT:" id="coordLat"  name="lat" style=/><br></br> 
+        <input type="text" placeholder="Ingrese coordenada LAT" id="coordLat"  name="lat" style=/><br></br> 
             
        <label for="long">Coordenada LONG: </label>
-       <input type="text" placeholder="Ingrese coordenada LONG:" id="coordLong"  name="long" style=/><br></br>
+       <input type="text" placeholder="Ingrese coordenada LONG" id="coordLong"  name="long" style=/><br></br>
             
         <label for="descripcion">Descripción: </label>     
         <input type="text" placeholder="Ingrese descripción del lugar" id="descripcion" name="descripcion" style=/><br></br> 
@@ -78,19 +109,17 @@
   <!-- AGREGAR -->
   <div class="agregrar">
     <h1>Agregar Lugar</h1>
-    <form action="{{ url_for('agregarAjax') }}" id="proyecto" method="POST">
+    <form action="{{ url_for('agregarAjax') }}" id="proyecto" method="PUT">
       
         <label for="nuevo">Nombre del Lugar: </label>
         <input type="text" placeholder="Ingrese el nuevo lugar" id="nombreAgregar" name="nombre" style=/><br></br> 
       
-      <label for="ig">User de Instagram:</label>
+      <label for="ig">Perfil de Instagram:</label>
       <input type="text" placeholder="Instagram" id="instaAgregar" name="insta" style=/><br></br> 
       
         <label for="direccion">Dirección: </label> 
         <input type="text" placeholder="Ingrese dirección del lugar" id="direccionAgregar" name="direccion"style=/><br></br> 
-      
-       <!-- Javo GOOOOOOOOOOOOOOOOOOOOD -->
-      <label for="lat">Coordenada LAT: </label>
+        <label for="lat">Coordenada LAT: </label>
         <input type="text" placeholder="Ingrese coordenada LAT:" id="latAgregar"  name="lat" style=/><br></br> 
             
        <label for="long">Coordenada LONG: </label>
@@ -116,31 +145,29 @@
     </form>
   </div>
   
-  <!-- MOSTRAR LISTA DE LUGARES -->
-  <div class="mostrar">
-    <h1> MOSTRAR LISTA </h1>
-    <button id="lugares" onclick="mandarAjax()"> Mostrar lugares por consola </button>
-  </div>
+
 
 </section>
 
  <!-- SUBIR IMAGENES -->
  <div class="imagenes">
-    <h1> Agregar Imagenes:</h1>
+    <h1> Agregar Imagenes</h1>
     <form action="{{ url_for('imagenes') }}" id="proyecto" method="POST" enctype="multipart/form-data">
       
       <label for="lugar">De que lugar agregar: </label>
       <select id="img" name="lugar">
+        <option disabled selected>Selecciona una opción</option>
         {% for lugar in lista %}
           <option value= "{{ lugar[1] }}"> {{ lugar[1] }}</option>
         {% endfor %}  
       </select>
       
-      <label for="nuevo">Adjunte una imagen: </label>
+      <label for="subir">Elegir imagen: </label>
       <input required type="file" id="subir" name="subir" accept="imagen/png,imagen/jpeg,imagen/jpg"/>
 	
           
-      <button type="submit" id="enviar">Subir Imagen</button></div>
+      <button type="submit" id="enviar">Subir Imagen</button>
+ </div>
 </section>
     </form>
 {% endblock %}
