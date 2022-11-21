@@ -17219,6 +17219,7 @@ var MapaInteractivo = function () {
       var activate = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
       var clickable = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : true;
       var options = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : {};
+      var inhtml = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : "";
 
       var random = Math.floor(Math.random() * 100001);
       var id = options.markerId ? options.markerId : new Date() * 1 + random;
@@ -17246,7 +17247,10 @@ var MapaInteractivo = function () {
         if (draggable) {
           marker.on('dragend', this._onMarkerDragEnd.bind(this));
         }
-
+        
+        if (inhtml != '') 
+            marker.bindPopup(inhtml);
+        
         // marker.bindPopup(this.templateMarkersMenu({ titulo: etiqueta, subtitulo: '', markerClass: 'marker', id: id, latlng: coords.y+','+coords.x }), { className: 'marker-menu-popup'});
         this._markers[id] = marker;
         marker.visible = visible;
@@ -41989,7 +41993,7 @@ var PolyBase = {
 // 🍂inherits CircleMarker
 // A symbolizer for points.
 
- var PointSymbolizer = _leaflet2.default.CircleMarker.extend({
+var PointSymbolizer = _leaflet2.default.CircleMarker.extend({
     includes: Symbolizer.prototype,
 
     statics: {
@@ -44038,8 +44042,3 @@ _leaflet2.default.canvas.tile = function (tileCoord, tileSize, opts) {
 /******/ ]);
 });
 //# sourceMappingURL=MapaInteractivo.js.map
-
-
-
-
-

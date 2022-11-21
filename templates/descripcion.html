@@ -12,20 +12,58 @@
     </form>
   </div>
 
-
-
   <div class="descripcion">
+    <div class="slider2">
+      <ul>
+        {% for img in IMAGEN %}
+          <li> <img class="imagenLugar{{loop.index}}" src="./static/img/{{ img[1] }}" id='img{{ img[0] }}'></img></li>
+          {% endfor %}  
+      </ul> 
+    </div>
     <h2 id="NOMBRE"> {{ NOMBRE }} </h2>
     <h3 id="DIRECCION"> {{ DIRECCION }} </h3>
+    <img src="static/img/ig.png" id="insta"></img>
     <p id="INSTAGRAM"> {{ INSTA }} </p>
     <P id="TELEFONO">  </p>
     <p id="DESCRIPCION"> {{ DESCRIPCION }} </p>
-    {% for img in IMAGEN %}
-    <img src="./static/img/{{ img[1] }}" id='img{{ img[0] }}'></img>
-    {% endfor %}
+
+  </div>
+  <br>
+  <div class="Opinion">
+    <form action="{{ url_for('opiniones') }}" id="proyecto" method="PUT">
+      
+      <label for="nuevo"></label>
+    <input type="text" placeholder="Dejanos tu opinión..." id="opinion" name="opinion" maxlength="100"/>
+      
+      <br>
+      <hr>
+      <br>
+      <label for="estrellas"></label>
+      <select id="estrellas" name="estrellas">
+        <option disabled selected>Selecciona una opción</option>
+        <option value=1> ★ </option>
+        <option value=2> ★★ </option>
+        <option value=3> ★★★ </option>
+        <option value=4> ★★★★ </option>
+        <option value=5> ★★★★★ </option>
+      </select>
+    </form>
+      <button type="button" onclick="opinionAjax()" id="enviar">Enviar</button>
+      
   </div>
   
+<div class="contenedor">
+ 
+  <button class="openPopup" onclick="mostrarOp()" id="abrir"> Mostrar otras opiniones </button>
+  
+  <div class="overlay" id="overlay">
+    <div class= "popup" id="popup">
+      <a href="#" id="btn-cerrar-popup" onclick="cerraroPopUp()" class="btn-cerrar-popup">x</a>
+      <h2>Opiniones</h2>
+     
+    </div>
+  </div>
+</div>
+
 </section>
-
-
 {% endblock %}
